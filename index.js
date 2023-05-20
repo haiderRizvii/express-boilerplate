@@ -1,24 +1,30 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const morgan = require("morgan");
 
-// Routes Files
-const bootcamps = require("./routes/bootcamps");
+const app = express();
 
 // Load Envs
 dotenv.config({ path: "./config/config.env" });
 
-const app = express();
+// Middlewares
+const logger = require("./middleware/logger");
 
+// Routes Files
+const bootcamps = require("./routes/bootcamps");
+
+
+// Use Middleware
+app.use(logger);
+if (process.env.NODE_ENV !== "production") app.use(morgan('dev'));
+
+// Mount routes
 app.get("/", (req, res) => {
-  // res.send("Hello Express!")
-  // res.json({ name: 'Haider Rizvi'})
-  // res.send('<h1>Hello Express</h1>')
-  // res.sendStatus(400)
   res.status(404).json({ success: false });
 });
 
-// Mount routes
 app.use("/api/v1/bootcamps", bootcamps);
+
 
 const PORT = process.env.PORT || 5000;
 
@@ -27,3 +33,11 @@ app.listen(PORT, () => {
     `Server is in ${process.env.NODE_ENV} mode, and is listening on ${PORT}`
   );
 });
+
+// app.get("/", (req, res) => {
+//   // res.send("Hello Express!")
+//   // res.json({ name: 'Haider Rizvi'})
+//   // res.send('<h1>Hello Express</h1>')
+//   // res.sendStatus(400)
+//   res.status(404).json({ success: false });
+// });
