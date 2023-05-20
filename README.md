@@ -19,13 +19,13 @@ A boilerplate project for quickly setting up an Express.js application with comm
 ## Getting Started
 
 1. Clone the repository:
- - git clone https://github.com/your-username/express-boilerplate.git
+ - `git clone https://github.com/your-username/express-boilerplate.git`
 2. Navigate to the project directory:
- - cd express-boilerplate
+ - `cd express-boilerplate`
 3. Install the dependencies:
-- npm install
+- `npm install`
 4. Start the development server:
-- npm run dev
+- `npm run dev`
 5. Open your web browser and visit `http://localhost:5000` to see the application in action.
 
 ## Available Scripts
