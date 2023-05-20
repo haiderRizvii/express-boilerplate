@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
 const colors = require("colors");
+const inspect = require('inspect');
 
 const app = express();
 
@@ -21,6 +22,8 @@ if (process.env.NODE_ENV !== "production") app.use(morgan('dev'));
 
 // Mount routes
 app.get("/", (req, res) => {
+  // inspect(req);
+  // debugger
   res.status(404).json({ success: false });
 });
 

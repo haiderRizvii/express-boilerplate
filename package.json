@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=production node index",
-    "dev": "nodemon index"
+    "dev": "nodemon index",
+    "dev debug": "nodemon --inspect index.js"
+
   },
   "keywords": [],
   "author": "",
@@ -14,6 +16,7 @@
     "colors": "^1.4.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "inspect": "0.0.2",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
